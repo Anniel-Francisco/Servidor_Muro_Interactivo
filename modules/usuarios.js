@@ -29,6 +29,6 @@ module.exports = {
     }
   },
 
-  //   editarUsuario,
-  //   eliminarUsuario,
+  editarUsuario: function () {},
+  eliminarUsuario: function () {},
 };
