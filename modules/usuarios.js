@@ -18,15 +18,15 @@ module.exports = {
 
   crearUsuario: async function (body, res) {
     if (Object.keys(body).length > 0) {
-      const crearUsuario = await addDoc(collection(database, "usuarios"), {
+      await addDoc(collection(database, "usuarios"), {
         nombre: body.nombre,
         apellido: body.apellido,
         clave: body.clave,
       });
 
-      if (Object.keys(crearUsuario).length > 0) {
-        res.status(200).send("Datos Registrados");
-      }
+      res.status(200).send("Datos Registrados");
+    } else {
+      res.status(400).send(`No se recibio ningun dato: ${body}`);
     }
   },
 
