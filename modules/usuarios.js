@@ -1,4 +1,11 @@
-const { database, collection, addDoc, getDocs } = require("../FirebaseConfig");
+const {
+  database,
+  collection,
+  addDoc,
+  getDocs,
+  updateDoc,
+  deleteDoc,
+} = require("../FirebaseConfig");
 module.exports = {
   obtenerUsuario: async function () {
     let users = [];
@@ -8,15 +15,15 @@ module.exports = {
     return users;
   },
 
-  agregarUsuario: async function (body, res) {
+  crearUsuario: async function (body, res) {
     if (Object.keys(body).length > 0) {
-      const agregarData = await addDoc(collection(database, "usuarios"), {
+      const crearUsuario = await addDoc(collection(database, "usuarios"), {
         nombre: body.nombre,
         apellido: body.apellido,
         clave: body.clave,
       });
 
-      if (Object.keys(agregarData).length > 0) {
+      if (Object.keys(crearUsuario).length > 0) {
         res.status(200).send("Datos Registrados");
       }
     }

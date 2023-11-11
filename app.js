@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const { agregarUsuario, obtenerUsuario } = require("./modules/usuarios.js");
+const { crearUsuario, obtenerUsuario } = require("./modules/usuarios.js");
 //
 const PORT = 3000;
 const app = express();
@@ -16,12 +16,12 @@ app.get("/api/usuarios", (req, res) => {
   });
 });
 //
-app.post("/api/agregar/usuario", (req, res) => {
+app.post("/api/crear/usuario", (req, res) => {
   if (Object.keys(req.body).length > 0) {
-    agregarUsuario(req.body, res);
+    crearUsuario(req.body, res);
   }
 });
-
+//
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en puerto ${PORT}...`);
 });
