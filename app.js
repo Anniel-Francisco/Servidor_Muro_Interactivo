@@ -19,6 +19,8 @@ app.get("/api/usuarios", (req, res) => {
 app.post("/api/crear/usuario", (req, res) => {
   if (Object.keys(req.body).length > 0) {
     crearUsuario(req.body, res);
+  } else {
+    res.status(400).send(`No se recibio ningun dato`);
   }
 });
 //

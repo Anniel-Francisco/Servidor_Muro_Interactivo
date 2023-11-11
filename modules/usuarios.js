@@ -17,17 +17,13 @@ module.exports = {
   },
 
   crearUsuario: async function (body, res) {
-    if (Object.keys(body).length > 0) {
-      await addDoc(collection(database, "usuarios"), {
-        nombre: body.nombre,
-        apellido: body.apellido,
-        clave: body.clave,
-      });
+    await addDoc(collection(database, "usuarios"), {
+      nombre: body.nombre,
+      apellido: body.apellido,
+      clave: body.clave,
+    });
 
-      res.status(200).send("Datos Registrados");
-    } else {
-      res.status(400).send(`No se recibio ningun dato: ${body}`);
-    }
+    res.status(200).send("Datos Registrados");
   },
 
   editarUsuario: function () {},
