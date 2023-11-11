@@ -1,0 +1,24 @@
+{
+  "name": "servidor_muro_interactivo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anniel-Francisco/Servidor_Muro_Interactivo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anniel-Francisco/Servidor_Muro_Interactivo/issues"
+  },
+  "homepage": "https://github.com/Anniel-Francisco/Servidor_Muro_Interactivo#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
