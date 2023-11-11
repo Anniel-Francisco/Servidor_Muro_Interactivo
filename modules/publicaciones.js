@@ -6,7 +6,7 @@ const {
   updateDoc,
   deleteDoc,
 } = require("../FirebaseConfig");
-
+//
 module.exports = {
   obtenerPublicaciones: function () {},
   crearPublicaciones: function () {},

@@ -6,6 +6,7 @@ const {
   updateDoc,
   deleteDoc,
 } = require("../FirebaseConfig");
+//
 module.exports = {
   obtenerUsuario: async function () {
     let users = [];
