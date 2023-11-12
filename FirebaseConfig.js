@@ -8,6 +8,7 @@ const {
   updateDoc,
   deleteDoc,
 } = require("firebase/firestore");
+const { getAuth } = require("firebase/auth");
 //
 const admin = require("firebase-admin");
 const serviceAccount = require("./serviceAccountKey.json");
@@ -29,7 +30,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 // Initialize Firestore
 const db = getFirestore(app);
+// Initialize Authentication
+const auth = getAuth(app);
+
 module.exports = {
+  auth: auth,
   database: db,
   collection: collection,
   addDoc: addDoc,

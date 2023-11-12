@@ -1,13 +1,14 @@
 const express = require("express");
 const cors = require("cors");
 const { crearUsuario, obtenerUsuario } = require("./modules/usuarios.js");
+
 //
-const PORT = 3000;
 const app = express();
+const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
-//API-USUARIOS
+//USUARIOS
 app.get("/api/usuarios", (req, res) => {
   obtenerUsuario().then((data) => {
     if (data.length > 0) {
