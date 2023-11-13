@@ -3,7 +3,7 @@
 npm install
 ```
 
-# Run the server
+# Run this server
 ```bash
 npm run dev
 ```
