@@ -36,10 +36,9 @@ module.exports = {
         correo: body.correo,
         usuario: body.usuario,
       });
-
-      res.status(200).send("Datos Registrados");
+      res.status(200).send({ message: "Datos registrados", code: 200 });
     } catch (error) {
-      console.log(error);
+      res.status(400).send(error);
     }
   },
 
