@@ -10,15 +10,26 @@ const {
 const { createUserWithEmailAndPassword } = require("firebase/auth");
 //
 module.exports = {
-  obtenerUsuario: async function () {
-    let users = [];
+  obtenerUsuario: async function (body) {
+    let userInfo = {};
+    const dataUsers = [];
     const usuarios = await getDocs(collection(database, "usuarios")).then(
       (item) => {
-        item.forEach((data) => users.push(data.data()));
+        item.forEach((data) => {
+          dataUsers.push(data.data());
+        });
       }
     );
 
-    return users;
+    const findUser = dataUsers.find(
+      (user) => body.correo == user.correo && body.clave == user.clave
+    );
+    if (findUser == null || findUser == undefined) {
+      return userInfo;
+    } else {
+      userInfo = { ...findUser };
+      return userInfo;
+    }
   },
 
   crearUsuario: async function (body, res) {

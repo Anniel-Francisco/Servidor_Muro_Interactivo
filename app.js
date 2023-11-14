@@ -9,10 +9,17 @@ app.use(cors());
 app.use(express.json());
 
 //USUARIOS
-app.get("/api/usuarios", (req, res) => {
-  obtenerUsuario().then((data) => {
-    if (data.length > 0) {
-      res.status(200).send(data);
+app.post("/api/login/usuario", (req, res) => {
+  obtenerUsuario(req.body).then((data) => {
+    if (Object.keys(data).length > 0) {
+      res.status(200).send({ isLoggedIn: true, data: data });
+    } else {
+      res
+        .status(400)
+        .send({
+          isLoggedIn: false,
+          message: "Usuario o contraseña incorrecto!",
+        });
     }
   });
 });
