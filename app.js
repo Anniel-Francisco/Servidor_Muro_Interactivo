@@ -14,12 +14,10 @@ app.post("/api/login/usuario", (req, res) => {
     if (Object.keys(data).length > 0) {
       res.status(200).send({ isLoggedIn: true, data: data });
     } else {
-      res
-        .status(400)
-        .send({
-          isLoggedIn: false,
-          message: "Usuario o contraseña incorrecto!",
-        });
+      res.status(400).send({
+        isLoggedIn: false,
+        message: "Usuario o contraseña incorrecto!",
+      });
     }
   });
 });
