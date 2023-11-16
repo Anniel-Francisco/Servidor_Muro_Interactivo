@@ -1,12 +1,11 @@
 // Import the functions you need from the SDKs you need
 const { initializeApp } = require("firebase/app");
+const { getStorage, ref, uploadBytes } = require("firebase/storage");
 const {
   getFirestore,
   collection,
   addDoc,
   getDocs,
-  updateDoc,
-  deleteDoc,
 } = require("firebase/firestore");
 const { getAuth } = require("firebase/auth");
 //
@@ -28,10 +27,12 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-// Initialize Firestore
-const db = getFirestore(app);
+// Initialize Storage
+const storage = getStorage(app);
 // Initialize Authentication
 const auth = getAuth(app);
+// Initialize Firestore
+const db = getFirestore(app);
 
 module.exports = {
   auth: auth,
@@ -39,6 +40,7 @@ module.exports = {
   collection: collection,
   addDoc: addDoc,
   getDocs: getDocs,
-  updateDoc: updateDoc,
-  deleteDoc: deleteDoc,
+  storage: storage,
+  ref: ref,
+  uploadBytes: uploadBytes,
 };
