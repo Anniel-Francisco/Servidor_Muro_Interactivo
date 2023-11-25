@@ -5,8 +5,8 @@ const {
   collection,
   addDoc,
   getDocs,
-  updateDoc,
-  deleteDoc,
+  query,
+  where,
 } = require("firebase/firestore");
 const { getAuth } = require("firebase/auth");
 //
@@ -28,10 +28,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-// Initialize Firestore
-const db = getFirestore(app);
 // Initialize Authentication
 const auth = getAuth(app);
+// Initialize Firestore
+const db = getFirestore(app);
 
 module.exports = {
   auth: auth,
@@ -39,6 +39,7 @@ module.exports = {
   collection: collection,
   addDoc: addDoc,
   getDocs: getDocs,
-  updateDoc: updateDoc,
-  deleteDoc: deleteDoc,
+  app: app,
+  query: query,
+  where: where,
 };
