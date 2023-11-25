@@ -17,8 +17,6 @@ const storage = getStorage(app);
 
 async function uploadFile(file, body, res) {
   try {
-    console.log(file);
-
     const dateTime = giveCurrentDateTime();
 
     const storageRef = ref(
@@ -67,7 +65,6 @@ module.exports = {
         posts.push(data.data());
       });
     });
-
     return posts;
   },
 

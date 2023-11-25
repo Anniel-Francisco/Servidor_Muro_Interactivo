@@ -47,7 +47,11 @@ app.get("/api/obtener/publicacion", (req, res) => {
   });
 });
 app.post("/api/crear/publicacion", upload.single("file"), (req, res) => {
-  crearPublicacion(req.body, req.file, res);
+  if (Object.keys(req.body).length > 0) {
+    crearPublicacion(req.body, req.file, res);
+  } else {
+    res.status(401).send("No se recibio ningun publicación!");
+  }
 });
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en puerto ${PORT}...`);
