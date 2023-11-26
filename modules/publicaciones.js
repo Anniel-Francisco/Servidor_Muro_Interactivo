@@ -41,7 +41,7 @@ async function uploadFile(file, body, res) {
       titulo: body.titulo,
       descripcion: body.descripcion,
     });
-    res.status(200).send({ message: "Publicacion exitosa!", code: 200 });
+    res.status(200).send({ message: "Publicacion Exitosa!", code: 200 });
   } catch (error) {
     res.status(400).send(error);
   }
