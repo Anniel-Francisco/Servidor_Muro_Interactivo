@@ -40,7 +40,6 @@ app.post("/api/crear/usuario", (req, res) => {
 });
 //
 //PUBLICACIONES
-
 app.get("/api/obtener/publicacion", (req, res) => {
   obtenerPublicaciones().then((item) => {
     res.status(200).send(item);
