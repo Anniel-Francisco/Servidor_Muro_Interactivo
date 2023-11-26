@@ -38,18 +38,18 @@ module.exports = {
 
   crearUsuario: async function (body, res) {
     try {
-      const doc = await addDoc(collection(database, "usuarios"), {
-        nombre: body.nombre,
-        apellido: body.apellido,
-        clave: body.clave,
-        correo: body.correo,
-        usuario: body.usuario,
-      });
       const credenciales = await createUserWithEmailAndPassword(
         auth,
         body.correo,
         body.clave
-      );
+        );
+        const doc = await addDoc(collection(database, "usuarios"), {
+          nombre: body.nombre,
+          apellido: body.apellido,
+          clave: body.clave,
+          correo: body.correo,
+          usuario: body.usuario,
+        });
 
       res.status(200).send({ message: "Datos registrados", code: 200 });
     } catch (error) {
