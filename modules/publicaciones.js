@@ -35,11 +35,12 @@ async function uploadFile(file, body, res) {
     );
 
     const fileURL = await getDownloadURL(snapshot.ref);
-
+    let usuario = JSON.parse(body.usuario);
     const doc = await addDoc(collection(database, "publicaciones"), {
       file: fileURL,
       titulo: body.titulo,
       descripcion: body.descripcion,
+      usuario: { ...usuario.userInfo },
     });
     res.status(200).send({ message: "Publicación Exitosa!", code: 200 });
   } catch (error) {
