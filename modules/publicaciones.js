@@ -40,7 +40,7 @@ async function uploadFile(file, body, res) {
       file: fileURL,
       titulo: body.titulo,
       descripcion: body.descripcion,
-      usuario: { ...usuario.userInfo },
+      usuario: { ...usuario },
     });
     res.status(200).send({ message: "Publicación Exitosa!", code: 200 });
   } catch (error) {
